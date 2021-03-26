@@ -5,3 +5,5 @@ https://www.st.com/en/ecosystems/x-nucleo-iks01a2.html?ecmp=tt9470_gl_link_feb20
 
 https://www.st.com/resource/en/user_manual/dm00157069-getting-started-with-the-xcubemems1-motion-mems-and-environmental-sensor-software-expansion-for-stm32cube-stmicroelectronics.pdf
 
+
+https://github.com/pololu/lsm6-arduino/blob/master/LSM6.cpp
