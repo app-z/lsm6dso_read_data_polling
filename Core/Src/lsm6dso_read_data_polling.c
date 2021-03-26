@@ -116,6 +116,7 @@ static float temperature_degC;
 static uint8_t whoamI, rst;
 static uint8_t tx_buffer[1000];
 
+uint16_t DevAddress = LSM6DSO_I2C_ADD_L;
 /* Extern variables ----------------------------------------------------------*/
 
 /* Private functions ---------------------------------------------------------*/
@@ -246,7 +247,7 @@ static int32_t platform_write(void *handle, uint8_t reg,
                               uint16_t len)
 {
 #if defined(NUCLEO_F411RE)
-  HAL_I2C_Mem_Write(handle, LSM6DSO_I2C_ADD_L, reg,
+  HAL_I2C_Mem_Write(handle, DevAddress, reg,
                     I2C_MEMADD_SIZE_8BIT, bufp, len, 1000);
 #elif defined(STEVAL_MKI109V3)
   HAL_GPIO_WritePin(CS_up_GPIO_Port, CS_up_Pin, GPIO_PIN_RESET);
@@ -273,7 +274,7 @@ static int32_t platform_read(void *handle, uint8_t reg, uint8_t *bufp,
                              uint16_t len)
 {
 #if defined(NUCLEO_F411RE)
-  HAL_I2C_Mem_Read(handle, LSM6DSO_I2C_ADD_L, reg,
+  HAL_I2C_Mem_Read(handle, DevAddress, reg,
                    I2C_MEMADD_SIZE_8BIT, bufp, len, 1000);
 #elif defined(STEVAL_MKI109V3)
   reg |= 0x80;
